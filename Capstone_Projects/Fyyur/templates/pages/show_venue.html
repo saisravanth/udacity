@@ -74,6 +74,39 @@
 		{% endfor %}
 	</div>
 </section>
+<section>
+	<div class="col-sm-6">
+		<form class="form" method="delete" action="/venues/{{ venue.id }}">
+			<h4>
+				<button type="submit" name="del" id=" {{venue.id}}"  class="col-sm-6">Delete Venue</button>
+			</h4>
+		</form>
+	</div>
+
+</section>
+<script>
+	const element = document.getElementsByName("del")[0];
+	console.log("element: ", element)
+	venueId = element.id
+	console.log("venueId: ", venueId)
+	element.onclick = function(e) {
+        fetch('/venues/' + venueId, {
+            method: 'DELETE',
+			body: JSON.stringify({
+                        'id': venueId
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+        })
+		.then(function(e) {
+			console.log("onclick: ", venueId);
+		})
+		.catch(function(e) {
+			console.log('Error in deleting the venue: ', e)
+		})
+	}
+</script>
 
 {% endblock %}
 
