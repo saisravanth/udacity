@@ -53,8 +53,11 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
 
     def test_remove_question_by_id(self):
-        res = self.client().delete('/questions/27')
-        self.assertEqual(res.status_code, 200)     
+        res = self.client().delete('/questions/17')
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(data['id'], 17)     
 
     def test_get_questions_by_search(self):
         res = self.client().post('/questions/tom')
@@ -71,7 +74,7 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(len(data['questions']), 3)        
 
     def test_get_random_questions(self):
-        res = self.client().post('/quizzes', json={'quiz_category': {'id':1}, 'previous_questions': [20,21]})
+        res = self.client().post('/quizzes', json= {'previous_questions': [20,21], 'quiz_category': {'type': 'Science', 'id': 1}})
         print("response:", json.loads(res.data))
         data = json.loads(res.data)
 
@@ -85,12 +88,12 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 404)
         self.assertEquals(data['message'], 'Not found')
          
-    def test_error_503(self):
-        res = self.client().post('/quizzes', json={'quiz_category': {'id':1}, 'previous_questions': [20,21,22]})
+    def test_done_with_quiz(self):
+        res = self.client().post('/quizzes', json={'previous_questions': [20,21,22], 'quiz_category': {'type': 'Science', 'id': 1}})
         data = json.loads(res.data)
 
-        self.assertEqual(res.status_code, 503)
-        self.assertEquals(data['message'], 'We are out of questions !!')     
+        self.assertEqual(res.status_code, 200)
+        self.assertEquals(data['question'], '')     
 
     def test_error_405(self):
         res = self.client().patch('/categories/1/questions')

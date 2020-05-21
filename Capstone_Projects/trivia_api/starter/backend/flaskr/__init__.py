@@ -100,7 +100,8 @@ def create_app(test_config=None):
       question = Question.query.get(id)
       question.delete()
       return jsonify({
-        'success': 200
+        'success': 200,
+        'id': id
       })      
     except:
       abort(404)
@@ -217,7 +218,10 @@ def create_app(test_config=None):
       abort(404)
 
     if len(questions) == len(previous_question_ids):
-      abort(503)
+      return jsonify({
+        'success': 200,
+        'question': ''
+      })
     else:
       while True:
         question = random.choice(questions)
@@ -270,14 +274,6 @@ def create_app(test_config=None):
       "message": "Unprocessible Request"
       }), 422  
 
-# Service Unavailabel 
-  @app.errorhandler(503)
-  def out_of_questions(error):
-    return jsonify({
-      "success": False, 
-      "error": 503,
-      "message": "We are out of questions !!"
-      }), 503 
   
   return app
 
