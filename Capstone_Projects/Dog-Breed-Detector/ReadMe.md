@@ -15,7 +15,7 @@
 [image12]: ./human_images3/Cocker_spaniel_03744.jpg "Output66"
 
 
-# Overview/Summary:
+# Project Overview:
 The goal of the project is to develope an algorithm that can accept any user-supplied image as input. If a dog is detected in the image, it will provide an estimate of the dog's breed. If a human is detected, it will provide an estimate of the dog breed that is most resembling. The final results looked like below:
 
 - Dog Breed 'Curley Coated Retriever' was identified as 'Curley Coated Retriever'
