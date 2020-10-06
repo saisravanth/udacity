@@ -1,9 +1,9 @@
 [//]: # (Image References)
 
-[image1]: ./assets/processed_face_data_64x64.png "Output1"
-[image2]: ./assets/processed_face_data_32x32.png "Output2"
-[image3]: ./assets/32x32_final_result.png "Output3"
-[image4]: ./assets/TrainingLoss.png "Output4"
+[image1]: ./assets/processed_face_data_64x64_.png "Output1"
+[image2]: ./assets/processed_face_data_32x32_.png "Output2"
+[image3]: ./assets/32x32_final_result_.png "Output3"
+[image4]: ./assets/TrainingLoss_.png "Output4"
 
 
 # Project Overview:
