@@ -12,7 +12,7 @@
 
 - Resultant Directed Acyclic Graph (**DAG**) looks like below:
 
-![Getting Started](./dag.png)
+![Getting Started](./dag2.png)
 
     - Input  - > Json files (s3://udacity-dend/log_data and s3://udacity-dend/song_data)
     - Schema - > STAR
