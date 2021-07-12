@@ -11,6 +11,7 @@
 - **Custom operators in Airflow** have been built to perform tasks such as staging the data into staging tables, filling the fact and dimension tables, and running data quality checks as the final step.
 
 - Resultant Directed Acyclic Graph (**DAG**) looks like below:
+
 ![Getting Started](./dag.png)
 
     - Input  - > Json files (s3://udacity-dend/log_data and s3://udacity-dend/song_data)
