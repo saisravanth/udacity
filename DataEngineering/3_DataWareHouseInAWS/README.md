@@ -43,7 +43,7 @@ Prerequisites:
 
 # Sample Queries And Output:
 ## select Top 5 * from songs;
-![Getting Started](./output2.png)
+![Getting Started](./output2.PNG)
 
 ## select Top 5 * from users;
-![Getting Started](./output.png)
+![Getting Started](./output.PNG)
